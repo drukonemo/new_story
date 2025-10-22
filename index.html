@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Лендинг с логотипом и ссылками</title>
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #6ee7b7;
+      --muted: #9aa4b2;
+      --link-bg: rgba(255,255,255,0.03);
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg,#071023 0%, var(--bg) 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+    .card{
+      width:100%;
+      max-width:420px;
+      text-align:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:36px 28px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* Логотип (SVG) */
+    .logo {
+      display:inline-block;
+      width:124px;
+      height:124px;
+      border-radius:24px;
+      background: linear-gradient(135deg, #6ee7b7 0%, #60a5fa 100%);
+      box-shadow: 0 8px 30px rgba(96,165,250,0.12), inset 0 -6px 10px rgba(0,0,0,0.08);
+      margin:0 auto 20px auto;
+      padding:18px;
+    }
+    .logo svg { width:100%; height:100%; display:block; }
+
+    h1{
+      margin:0 0 14px 0;
+      font-size:20px;
+      font-weight:600;
+      color:#f8fafc;
+    }
+    p.lead{
+      margin:0 0 22px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:8px;
+    }
+    .link{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background:var(--link-bg);
+      color:#e6eef6;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:10px;
+      transition:transform .14s ease, box-shadow .14s ease, background .14s ease;
+      box-shadow: 0 2px 8px rgba(2,6,23,0.35);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .link svg{ width:20px; height:20px; flex:0 0 20px; }
+    .link .text{ font-size:15px; font-weight:500; }
+    .link:hover{
+      transform:translateY(-4px);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    }
+
+    .small{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:480px){
+      .card{ padding:28px 18px; }
+      .logo{ width:100px; height:100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main" aria-labelledby="main-title">
+      <!-- Логотип: можно заменить на <img src="logo.png" alt="Логотип"> -->
+      <div class="logo" aria-hidden="true">
+        <!-- Простой SVG логотип с инициалами -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Логотип">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0.75"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="100" height="100" rx="18" ry="18" fill="url(#g)" opacity="0.06"/>
+          <g transform="translate(10,10)">
+            <circle cx="40" cy="40" r="34" fill="rgba(255,255,255,0.06)"/>
+            <text x="40" y="52" text-anchor="middle" font-family="Inter, Roboto, Arial" font-size="34" fill="#fff" font-weight="700">LM</text>
+          </g>
+        </svg>
+      </div>
+
+      <h1 id="main-title">Ваше имя или бренд</h1>
+      <p class="lead">Краткая подпись — кто вы и чем занимаетесь. Замените текст на свой.</p>
+
+      <nav class="links" aria-label="Социальные сети">
+        <a class="link" href="https://t.me/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <!-- Telegram icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 4L2 11l5 1 1 6 3-3 5 4 6-14z" fill="#ffffff" opacity="0.95"/>
+          </svg>
+          <span class="text">Telegram</span>
+        </a>
+
+        <a class="link" href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <!-- Instagram icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" ry="5" stroke="#fff" stroke-opacity="0.9" stroke-width="1.4" fill="none"/>
+            <circle cx="12" cy="12" r="3.2" fill="#fff" opacity="0.95"/>
+            <circle cx="17.5" cy="6.5" r="0.9" fill="#fff" opacity="0.95"/>
+          </svg>
+          <span class="text">Instagram</span>
+        </a>
+
+        <a class="link" href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <!-- Twitter icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 5.9c-.6.3-1.2.5-1.9.6.7-.4 1.2-1.1 1.4-1.9-.7.4-1.5.7-2.3.9C18.6 4.8 17.8 4.5 17 4.5c-1.8 0-3.2 1.5-3.2 3.4 0 .3 0 .6.1.9-2.6-.1-4.9-1.4-6.5-3.4-.3.5-.5 1-.5 1.7 0 1.2.8 2.2 2 2.8-.6 0-1.2-.2-1.7-.5v.1c0 1.7 1.2 3.2 2.8 3.5-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.2 3 2.2-1.1.9-2.5 1.4-4 1.4H6c1.5.9 3.3 1.5 5.2 1.5 6.3 0 9.8-5.8 9.8-10.9v-.5c.7-.5 1.3-1.2 1.8-1.9-.6.3-1.3.6-2 .7z" fill="#fff" opacity="0.95"/>
+          </svg>
+          <span class="text">Twitter / X</span>
+        </a>
+
+        <a class="link" href="https://github.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <!-- GitHub icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 .5C5.8.5.9 5.4.9 11.6c0 4.9 3.2 9 7.6 10.5.6.1.8-.2.8-.5v-1.8c-3.1.7-3.7-1.4-3.7-1.4-.5-1.2-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8.9 2 1.3.2-.8.4-1.4.7-1.7-2.5-.3-5.1-1.3-5.1-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.2 1.2.9-.3 1.9-.5 2.9-.5s2 .2 2.9.5c2.2-1.6 3.2-1.2 3.2-1.2.6 1.7.2 3 .1 3.3.8.8 1.2 1.9 1.2 3.2 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.6.8.5 4.4-1.5 7.6-5.6 7.6-10.5C23.1 5.4 18.2.5 12 .5z" fill="#fff" opacity="0.95"/>
+          </svg>
+          <span class="text">GitHub</span>
+        </a>
+
+        <a class="link" href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <!-- LinkedIn icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.22 8.99h4.52V24H.22V8.99zM8.73 9h4.34v2.02h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.52v-6.28c0-1.5 0-3.42-2.08-3.42-2.08 0-2.4 1.62-2.4 3.3V24H8.73V9z" fill="#fff" opacity="0.95"/>
+          </svg>
+          <span class="text">LinkedIn</span>
+        </a>
+      </nav>
+
+      <div class="small">Замените ссылки на свои профили. Логотип можно заменить на изображение <code>logo.png</code>.</div>
+    </main>
+  </div>
+</body>
+</html>
